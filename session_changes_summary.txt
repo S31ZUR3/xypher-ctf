@@ -1,0 +1,42 @@
+XYPHER '26 - CTFd Theme Modification Summary
+=============================================
+
+1. Theme Foundation & Integration:
+   - Created 'CTFd/themes/core/assets/scss/custom.scss' containing the core XYPHER '26 design (Gold #d4af37 and Dark #0a0a0a palette).
+   - Integrated 'custom.scss' into the main build system by adding it to 'CTFd/themes/core/assets/scss/main.scss'.
+   - Performed multiple Vite builds via 'npm run build' to generate updated static assets.
+
+2. Homepage Transformation:
+   - Created a brand new 'CTFd/themes/core/templates/index.html' featuring a high-tech hero section with Orbitron/Rajdhani fonts.
+   - Modified 'CTFd/views.py' to prioritize the custom 'index.html' template over database-driven pages.
+   - Removed the default 'index' entry from the MariaDB 'pages' table to prevent content overrides.
+   - Added stylized "Initialize" (Register) and "Access" (Login) buttons with gold outlines and hover glows.
+
+3. Global UI/UX Enhancements:
+   - Overrode default Bootstrap theme across all pages (Scoreboard, Users, Teams, Challenges).
+   - Custom styling for:
+     - Tables: Dark transparent backgrounds with gold headers and borders.
+     - Badges: Styled with gold borders or solid gold backgrounds (removing default greens/blues).
+     - Buttons: Implemented gold outline style with hover transformations.
+     - Navbars: Added backdrop blur and fixed gold text colors.
+     - Forms/Inputs: Darkened inputs with gold focus states.
+     - Modals & Dropdowns: Dark theme consistency with gold accents.
+
+4. Background & Animations:
+   - Added three layers of background animations to 'base.html':
+     - Pulsing Radial Glow: A slow-breathing gold light in the background.
+     - Moving Grid: An animated 70px grid that creates a sense of motion.
+     - Scanline Effect: A retro-futuristic horizontal line moving vertically across the screen.
+   - Added 'pulseGlow' animation to the main title and 'expandWidth' to the UI dividers.
+
+5. Structural Layout Fixes:
+   - Implemented a Sticky Footer: Modified 'custom.scss' (html, body, main) to use flexbox, ensuring the footer stays at the bottom even on short pages like Login/Register.
+   - Replaced the default CTFd footer with a custom "Designed for XYPHER '26 | IEEE Computer Society REC" footer.
+
+6. Challenge Board Specific Fixes:
+   - Added 'id="challenges-board"' to 'challenges.html' for precise CSS targeting.
+   - Force-overrode the default green "Solved" state for challenges. Solved challenges now display a gold linear-gradient background with black text for optimal contrast.
+   - Used high-specificity CSS selectors to prevent default theme styles from reverting changes.
+
+7. System Administration:
+   - Managed Docker containers (restarts, service status) to ensure code and template changes were properly loaded by the Flask application.

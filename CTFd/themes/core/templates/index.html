@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row min-vh-100 d-flex align-items-center">
+    <div class="col-md-12 text-center home-hero">
+      <h1 class="display-1 main-title">XYPHER '26</h1>
+      <p class="lead subtitle">IEEE Computer Society REC</p>
+      <div class="divider"></div>
+      <div class="mt-5">
+        {% if authed() %}
+          <a class="btn btn-outline-gold btn-lg mx-2" href="{{ url_for('challenges.listing') }}">
+            ENTER THE NEXUS
+          </a>
+        {% else %}
+          <a class="btn btn-outline-gold btn-lg mx-2" href="{{ url_for('auth.register') }}">
+            INITIALIZE
+          </a>
+          <a class="btn btn-outline-gold btn-lg mx-2" href="{{ url_for('auth.login') }}">
+            ACCESS
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ Assets.js("assets/js/page.js") }}
+{% endblock %}
